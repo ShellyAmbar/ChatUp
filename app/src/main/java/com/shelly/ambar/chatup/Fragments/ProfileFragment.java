@@ -21,7 +21,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.shelly.ambar.chatup.Adapters.MyPhotoAdapter;
-import com.shelly.ambar.chatup.FollowersActivity;
+import com.shelly.ambar.chatup.Activities.FollowersActivity;
 import com.shelly.ambar.chatup.Models.PostModel;
 import com.shelly.ambar.chatup.Models.UsersDataModel;
 import com.shelly.ambar.chatup.R;

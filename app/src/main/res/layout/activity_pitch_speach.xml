@@ -9,7 +9,7 @@
     android:padding="5dp"
     android:paddingBottom="30dp"
     android:theme="@style/Theme.UserDialog.AppCompat"
-    tools:context=".PitchSpeachActivity">
+    tools:context=".Activities.PitchSpeachActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"

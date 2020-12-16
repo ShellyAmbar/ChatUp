@@ -1,4 +1,4 @@
-package com.shelly.ambar.chatup;
+package com.shelly.ambar.chatup.Activities;
 
 import android.animation.ArgbEvaluator;
 import android.content.Intent;
@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import com.shelly.ambar.chatup.Adapters.SignUpCardsAdapter;
 import com.shelly.ambar.chatup.Models.CardModel;
+import com.shelly.ambar.chatup.R;
 
 import java.util.ArrayList;
 import java.util.List;

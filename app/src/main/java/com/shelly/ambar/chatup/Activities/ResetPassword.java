@@ -1,4 +1,4 @@
-package com.shelly.ambar.chatup;
+package com.shelly.ambar.chatup.Activities;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.shelly.ambar.chatup.R;
 
 public class ResetPassword extends AppCompatActivity implements View.OnClickListener {
 

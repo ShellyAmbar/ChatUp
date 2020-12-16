@@ -1,4 +1,4 @@
-package com.shelly.ambar.chatup;
+package com.shelly.ambar.chatup.Activities;
 
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
@@ -28,6 +28,7 @@ import com.google.firebase.database.ServerValue;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
+import com.shelly.ambar.chatup.R;
 import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.io.ByteArrayOutputStream;

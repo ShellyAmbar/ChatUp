@@ -1,4 +1,4 @@
-package com.shelly.ambar.chatup;
+package com.shelly.ambar.chatup.Activities;
 
 import android.Manifest;
 import android.content.ContentResolver;
@@ -34,7 +34,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.shelly.ambar.chatup.Models.UsersDataModel;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -59,6 +58,7 @@ import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
+import com.shelly.ambar.chatup.R;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -312,7 +312,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
 
 
                 }else{
-                    startActivity(new Intent(SettingsActivity.this,EnterActivity.class));
+                    startActivity(new Intent(SettingsActivity.this, EnterActivity.class));
                     finish();
                 }
             }
@@ -448,7 +448,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                 new_location_provided.setText("");
                 MyCity="";
 
-                startActivity(new Intent(this,MapsActivity2.class));
+                startActivity(new Intent(this, MapsActivity2.class));
                 break;
             case R.id.Arrow_down_education:
                 arrow_down_education();

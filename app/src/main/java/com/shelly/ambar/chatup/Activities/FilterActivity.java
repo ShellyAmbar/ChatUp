@@ -1,4 +1,4 @@
-package com.shelly.ambar.chatup;
+package com.shelly.ambar.chatup.Activities;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -34,19 +34,18 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageTask;
-import com.google.firebase.storage.UploadTask;
 import com.shelly.ambar.chatup.Adapters.ViewPagerAdapter;
 import com.shelly.ambar.chatup.Fragments.EditImageFragment;
 import com.shelly.ambar.chatup.Fragments.FilterlistFragment;
 import com.shelly.ambar.chatup.Interfaces.EditImageFragmentListener;
 import com.shelly.ambar.chatup.Interfaces.FiltersListFragmentListener;
+import com.shelly.ambar.chatup.R;
 import com.shelly.ambar.chatup.Utils.BitmapUtils;
 import com.google.firebase.storage.StorageReference;
 import com.karumi.dexter.Dexter;
@@ -189,7 +188,7 @@ public class FilterActivity extends AppCompatActivity implements FiltersListFrag
                     }
 
 
-                    Intent intent =new Intent(FilterActivity.this,PostActivity.class);
+                    Intent intent =new Intent(FilterActivity.this, PostActivity.class);
                     intent.putExtra("ImageFileName", ImageFileName);
 
 

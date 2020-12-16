@@ -45,31 +45,31 @@
 
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activities.LoginActivity"
             android:launchMode="singleTask"
-            android:parentActivityName=".EnterActivity">
+            android:parentActivityName=".Activities.EnterActivity">
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.shelly.ambar.chatup.EnterActivity" />
+                android:value="com.shelly.ambar.chatup.Activities.EnterActivity" />
         </activity>
         <activity
-            android:name=".ResetPassword"
+            android:name=".Activities.ResetPassword"
             android:theme="@style/Theme.UserBigDialog.AppCompat"
-            android:parentActivityName=".LoginActivity">
+            android:parentActivityName=".Activities.LoginActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.shelly.ambar.chatup.LoginActivity" />
+                android:value="com.shelly.ambar.chatup.Activities.LoginActivity" />
         </activity>
         <activity
-            android:name=".SignUpActivity"
+            android:name=".Activities.SignUpActivity"
             android:launchMode="singleTask"
-            android:parentActivityName=".EnterActivity">
+            android:parentActivityName=".Activities.EnterActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.shelly.ambar.chatup.EnterActivity" />
+                android:value="com.shelly.ambar.chatup.Activities.EnterActivity" />
         </activity>
-        <activity android:name=".EnterActivity">
+        <activity android:name=".Activities.EnterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -77,49 +77,49 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SignUpCardsActivity"
+            android:name=".Activities.SignUpCardsActivity"
             android:noHistory="true"
-            android:parentActivityName=".EnterActivity">
+            android:parentActivityName=".Activities.EnterActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.shelly.ambar.chatup.EnterActivity" />
+                android:value="com.shelly.ambar.chatup.Activities.EnterActivity" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:label="@string/title_activity_main"
-            android:parentActivityName=".LoginActivity"
+            android:parentActivityName=".Activities.LoginActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.shelly.ambar.chatup.LoginActivity" />
+                android:value="com.shelly.ambar.chatup.Activities.LoginActivity" />
         </activity>
         <activity
-            android:name=".PitchSpeachActivity"
+            android:name=".Activities.PitchSpeachActivity"
             android:theme="@style/Theme.UserDialog.AppCompat" />
         <activity
-            android:name=".PostDetailActivity"
+            android:name=".Activities.PostDetailActivity"
             android:launchMode="standard"
             android:theme="@style/Theme.UserBigDialog.AppCompat" />
         <activity
-            android:name=".CommentsActivity"
+            android:name=".Activities.CommentsActivity"
             android:launchMode="standard"
             android:theme="@style/Theme.UserDialog.AppCompat" />
         <activity
-            android:name=".FollowersActivity"
+            android:name=".Activities.FollowersActivity"
             android:theme="@style/Theme.UserBigDialog.AppCompat" />
-        <activity android:name=".StoryActivity" />
-        <activity android:name=".FilterActivity" />
-        <activity android:name=".AddStoryActivity" />
-        <activity android:name=".ChatActivity" />
-        <activity android:name=".PostActivity" />
+        <activity android:name=".Activities.StoryActivity" />
+        <activity android:name=".Activities.FilterActivity" />
+        <activity android:name=".Activities.AddStoryActivity" />
+        <activity android:name=".Activities.ChatActivity" />
+        <activity android:name=".Activities.PostActivity" />
         <activity
-            android:name=".VideoActivity"
+            android:name=".Activities.VideoActivity"
             android:theme="@style/Theme.UserBigDialog.AppCompat" />
-        <activity android:name=".FindFriendsActivity" />
+        <activity android:name=".Activities.FindFriendsActivity" />
         <activity
-            android:name=".ForgotPassActivity"
+            android:name=".Activities.ForgotPassActivity"
             android:theme="@style/Theme.UserBigDialog.AppCompat" />
-        <activity android:name=".SettingsActivity" />
+        <activity android:name=".Activities.SettingsActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -133,33 +133,33 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".ShowPeopleOnMap"
+            android:name=".Activities.ShowPeopleOnMap"
             android:label="@string/title_activity_show_people_on_map"
             android:theme="@style/Theme.AppCompat.DayNight.Dialog.MinWidth" />
         <activity
-            android:name=".MapsActivity2"
+            android:name=".Activities.MapsActivity2"
             android:label="@string/title_activity_maps2"
             android:theme="@style/Theme.AppCompat.DayNight.Dialog.MinWidth" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
-        <activity android:name=".AllChatsActivity" />
+        <activity android:name=".Activities.AllChatsActivity" />
         <activity
-            android:name=".MatchActivity"
+            android:name=".Activities.MatchActivity"
             android:theme="@style/Theme.UserDialog.AppCompat" />
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="@string/default_notification_channel_id" />
 
-        <activity android:name=".NotificationActivity">
+        <activity android:name=".Activities.NotificationActivity">
             <intent-filter>
                 <action android:name="com.shelly.ambar.chatup.TARGETNOTIFICATION" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProfileActivity"
+        <activity android:name=".Activities.ProfileActivity"
 
             android:launchMode="standard"
             android:theme="@style/Theme.UserBigDialog.AppCompat"

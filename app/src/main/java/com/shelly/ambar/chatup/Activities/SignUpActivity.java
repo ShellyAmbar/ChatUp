@@ -1,4 +1,4 @@
-package com.shelly.ambar.chatup;
+package com.shelly.ambar.chatup.Activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -10,7 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.autofill.AutofillValue;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -39,8 +38,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
+import com.shelly.ambar.chatup.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -274,7 +272,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                                     progressDialog.dismiss();
                                     Toast.makeText(SignUpActivity.this,"Entered with Success ",Toast.LENGTH_SHORT).show();
 
-                                    startActivity(new Intent(SignUpActivity.this,FindFriendsActivity.class));
+                                    startActivity(new Intent(SignUpActivity.this, FindFriendsActivity.class));
 
                                 }
                             });
@@ -313,7 +311,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
 
             case R.id.btn_signup_login:
-                Intent intent=new Intent(SignUpActivity.this,LoginActivity.class);
+                Intent intent=new Intent(SignUpActivity.this, LoginActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
 

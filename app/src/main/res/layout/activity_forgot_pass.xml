@@ -5,7 +5,7 @@
     android:id="@+id/activity_forgot_pass"
     android:layout_width="match_parent"
     android:layout_height="400dp"
-    tools:context=".ForgotPassActivity"
+    tools:context=".Activities.ForgotPassActivity"
     android:theme="@style/Theme.UserDialog.AppCompat"
     android:gravity="center_horizontal"
     android:orientation="vertical">

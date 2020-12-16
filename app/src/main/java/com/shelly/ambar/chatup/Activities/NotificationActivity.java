@@ -1,4 +1,4 @@
-package com.shelly.ambar.chatup;
+package com.shelly.ambar.chatup.Activities;
 
 import android.app.Notification;
 import android.content.Intent;
@@ -13,6 +13,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.shelly.ambar.chatup.Models.UsersDataModel;
+import com.shelly.ambar.chatup.R;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 

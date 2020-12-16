@@ -12,7 +12,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.shelly.ambar.chatup.Models.PostModel;
-import com.shelly.ambar.chatup.PostDetailActivity;
+import com.shelly.ambar.chatup.Activities.PostDetailActivity;
 import com.shelly.ambar.chatup.R;
 
 import java.util.List;

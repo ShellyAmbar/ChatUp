@@ -1,4 +1,4 @@
-package com.shelly.ambar.chatup;
+package com.shelly.ambar.chatup.Activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -34,6 +34,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.shelly.ambar.chatup.R;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -242,12 +243,12 @@ public class MainActivity extends AppCompatActivity
 
 
         } else if (id == R.id.main_Settings) {
-            startActivity(new Intent(MainActivity.this,SettingsActivity.class));
+            startActivity(new Intent(MainActivity.this, SettingsActivity.class));
 
 
         } else if (id == R.id.main_share) {
 
-            startActivity(new Intent(MainActivity.this,ShowPeopleOnMap.class));
+            startActivity(new Intent(MainActivity.this, ShowPeopleOnMap.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

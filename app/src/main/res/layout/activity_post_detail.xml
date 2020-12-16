@@ -6,7 +6,7 @@
     android:layout_height="550dp"
 
     android:theme="@style/Theme.UserBigDialog.AppCompat"
-    tools:context=".PostDetailActivity">
+    tools:context=".Activities.PostDetailActivity">
 
 
 

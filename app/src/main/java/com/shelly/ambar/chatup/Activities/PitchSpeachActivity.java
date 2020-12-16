@@ -1,4 +1,4 @@
-package com.shelly.ambar.chatup;
+package com.shelly.ambar.chatup.Activities;
 
 import android.content.Intent;
 import android.speech.tts.TextToSpeech;
@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.shelly.ambar.chatup.R;
 
 import java.util.Locale;
 

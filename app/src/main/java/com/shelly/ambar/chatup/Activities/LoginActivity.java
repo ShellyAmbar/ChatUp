@@ -1,4 +1,4 @@
-package com.shelly.ambar.chatup;
+package com.shelly.ambar.chatup.Activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -25,10 +25,8 @@ import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
-import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
-import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
@@ -49,14 +47,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.shelly.ambar.chatup.R;
 
 import org.json.JSONObject;
 
 import java.net.URL;
 import java.util.Arrays;
 import java.util.Objects;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * A login screen that offers login via email/password.
@@ -347,7 +344,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             case R.id.btn_layout_signup:
 
-                Intent intent=new Intent(LoginActivity.this,SignUpActivity.class);
+                Intent intent=new Intent(LoginActivity.this, SignUpActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
 

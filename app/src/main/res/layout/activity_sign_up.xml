@@ -7,7 +7,7 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="3dp"
-    tools:context=".SignUpActivity">
+    tools:context=".Activities.SignUpActivity">
 
     <LinearLayout
         android:id="@+id/signUp_activity"

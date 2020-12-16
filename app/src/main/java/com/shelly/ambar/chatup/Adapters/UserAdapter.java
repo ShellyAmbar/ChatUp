@@ -18,13 +18,11 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.ChildEventListener;
-import com.shelly.ambar.chatup.AllChatsActivity;
-import com.shelly.ambar.chatup.ChatActivity;
-import com.shelly.ambar.chatup.MainActivity;
+import com.shelly.ambar.chatup.Activities.ChatActivity;
 import com.shelly.ambar.chatup.Models.ChatMessageModel;
 import com.shelly.ambar.chatup.Models.ChatModel;
 import com.shelly.ambar.chatup.Models.UsersDataModel;
-import com.shelly.ambar.chatup.ProfileActivity;
+import com.shelly.ambar.chatup.Activities.ProfileActivity;
 import com.shelly.ambar.chatup.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -35,10 +33,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;

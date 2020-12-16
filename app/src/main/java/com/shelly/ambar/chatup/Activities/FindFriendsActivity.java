@@ -1,9 +1,8 @@
-package com.shelly.ambar.chatup;
+package com.shelly.ambar.chatup.Activities;
 
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,18 +13,17 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.shelly.ambar.chatup.Adapters.CardsAdapter;
 import com.shelly.ambar.chatup.Models.UsersDataModel;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
+import com.shelly.ambar.chatup.R;
 import com.shelly.ambar.chatup.Utils.BMHelper;
 
 
@@ -90,7 +88,7 @@ public class FindFriendsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(FindFriendsActivity.this,SettingsActivity.class));
+                startActivity(new Intent(FindFriendsActivity.this, SettingsActivity.class));
 
             }
         });
@@ -243,7 +241,7 @@ public class FindFriendsActivity extends AppCompatActivity {
 
                                                     if(dataSnapshot.exists()){
                                                         if(dataSnapshot.getValue().equals(true)){
-                                                            Intent matchIntent=new Intent(FindFriendsActivity.this,MatchActivity.class);
+                                                            Intent matchIntent=new Intent(FindFriendsActivity.this, MatchActivity.class);
                                                             matchIntent.putExtra("matchName",lastPersonBeforeRemove.getUserName());
                                                             matchIntent.putExtra("matchPhoto",lastPersonBeforeRemove.getThumb_Image() );
                                                             matchIntent.putExtra("matchId",lastPersonBeforeRemove.getId());

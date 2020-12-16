@@ -14,11 +14,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.shelly.ambar.chatup.FilterActivity;
+import com.shelly.ambar.chatup.Activities.FilterActivity;
 import com.shelly.ambar.chatup.Models.StoryModel;
 import com.shelly.ambar.chatup.Models.UsersDataModel;
 import com.shelly.ambar.chatup.R;
-import com.shelly.ambar.chatup.StoryActivity;
+import com.shelly.ambar.chatup.Activities.StoryActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

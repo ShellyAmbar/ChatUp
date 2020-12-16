@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 
 import com.shelly.ambar.chatup.Adapters.PostAdapter;
 import com.shelly.ambar.chatup.Adapters.StoryAdapter;
-import com.shelly.ambar.chatup.LoginActivity;
+import com.shelly.ambar.chatup.Activities.LoginActivity;
 import com.shelly.ambar.chatup.Models.PostModel;
 import com.shelly.ambar.chatup.Models.StoryModel;
 import com.shelly.ambar.chatup.R;

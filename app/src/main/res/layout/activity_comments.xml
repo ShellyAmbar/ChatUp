@@ -7,7 +7,7 @@
     android:layout_height="350dp"
 
     android:theme="@style/Theme.UserDialog.AppCompat"
-    tools:context=".CommentsActivity">
+    tools:context=".Activities.CommentsActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"

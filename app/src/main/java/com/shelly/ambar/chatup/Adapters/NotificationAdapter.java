@@ -1,13 +1,9 @@
 package com.shelly.ambar.chatup.Adapters;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,13 +13,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.shelly.ambar.chatup.ChatActivity;
-import com.shelly.ambar.chatup.MainActivity;
 import com.shelly.ambar.chatup.Models.NotificationModel;
 import com.shelly.ambar.chatup.Models.PostModel;
 import com.shelly.ambar.chatup.Models.UsersDataModel;
-import com.shelly.ambar.chatup.PostDetailActivity;
-import com.shelly.ambar.chatup.ProfileActivity;
+import com.shelly.ambar.chatup.Activities.PostDetailActivity;
+import com.shelly.ambar.chatup.Activities.ProfileActivity;
 import com.shelly.ambar.chatup.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

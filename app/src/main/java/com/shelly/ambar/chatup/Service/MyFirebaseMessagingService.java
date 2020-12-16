@@ -11,8 +11,6 @@ import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-import com.shelly.ambar.chatup.AllChatsActivity;
-import com.shelly.ambar.chatup.MainActivity;
 import com.shelly.ambar.chatup.R;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {

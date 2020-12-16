@@ -1,44 +1,40 @@
-package com.shelly.ambar.chatup;
+package com.shelly.ambar.chatup.Activities;
 
+import android.Manifest;
 import android.app.ProgressDialog;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.webkit.MimeTypeMap;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.MediaController;
 import android.widget.Toast;
+import android.widget.VideoView;
 
-import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
-import com.shelly.ambar.chatup.Models.UsersDataModel;
-import com.theartofdev.edmodo.cropper.CropImage;
+import com.shelly.ambar.chatup.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -46,104 +42,100 @@ import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class PostActivity extends AppCompatActivity {
+public class VideoActivity extends AppCompatActivity {
 
-    private Uri imageUri;
-    private Uri videoUri;
-    private String myUrl="";
-    private Bitmap finalBitMap;
-    private StorageTask uploadTask;
-    private StorageReference storageReference;
-    private ImageView close,imageAdded;
-    private TextView post;
-    private EditText description;
-    private TextView Crop;
-    private String fileDirectory;
-    private String imageDirectoryInFile;
-    public final static String APP_PATH_SD_CARD = "/DesiredSubfolderName/";
-    public final static String APP_THUMBNAIL_PATH_SD_CARD = "thumbnails";
-    private String ImageFileName;
-    private DatabaseReference referenceToUsers;
-    private UsersDataModel usersDataModel;
+    private VideoView videoView;
+    private Button post_video;
+    private Button start_again_btn;
+    private Button stop_btn;
+    private Uri contentURI;
+    private MediaPlayer mediaPlayer;
+    private MediaController.MediaPlayerControl mediaPlayerControl;
+    MediaController mediaController ;
+    private String VideoFileName;
+    private final static String APP_PATH_SD_CARD = "/DesiredSubfolderName/";
+    private final static String APP_THUMBNAIL_PATH_SD_CARD = "thumbnails";
+
+    StorageTask uploadTask;
+    StorageReference storageReference;
+
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post);
+        setContentView(R.layout.activity_video);
 
-        close=findViewById(R.id.close);
-        imageAdded=findViewById(R.id.image_added);
-        post=findViewById(R.id.post);
-        description=findViewById(R.id.description);
-        Crop=findViewById(R.id.Crop);
+        videoView=findViewById(R.id.video_preview);
 
 
 
 
-        ImageFileName=getIntent().getStringExtra("ImageFileName");
-
-        finalBitMap= getThumbnail(ImageFileName);
-        imageUri= getImageUri(this,finalBitMap);
-
-
-
-
+        post_video=findViewById(R.id.post_video);
+        start_again_btn=findViewById(R.id.start_again_btn);
+        stop_btn=findViewById(R.id.stop_btn);
         storageReference=FirebaseStorage.getInstance().getReference("Posts")
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
-        referenceToUsers=FirebaseDatabase.getInstance().getReference("Users")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-        referenceToUsers.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+        VideoFileName=getIntent().getStringExtra("VideoFileName");
+        contentURI=getContentVideoFromStorageFile(VideoFileName);
 
-                usersDataModel=dataSnapshot.getValue(UsersDataModel.class);
-            }
+        videoView.setVideoURI(contentURI);
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
-        });
+        videoView.requestFocus();
+        videoView.start();
 
-        CropImage.activity(imageUri).setAspectRatio(4,3)
-                .start(PostActivity.this);
-        Crop.setOnClickListener(new View.OnClickListener() {
+
+
+
+        post_video.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CropImage.activity(imageUri).setAspectRatio(3,3)
-                        .start(PostActivity.this);
+                Intent intentFilter= getIntent();
+                if (intentFilter.getStringExtra("Activity").equals("Post") ){
+
+                    uploadVideo();
+
+
+
+                }else if (intentFilter.getStringExtra("Activity").equals("Story") ){
+
+                    uploadVideo();
+
+                    Intent intent =new Intent(VideoActivity.this,StoryActivity.class);
+                    intent.putExtra("VideoFileName", VideoFileName);
+                    intent.putExtra("Activity","Video");
+                    startActivity(intent);
+                    finish();
+
+                }
             }
         });
 
-        close.setOnClickListener(new View.OnClickListener() {
+        start_again_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                finish();
+                videoView.start();
             }
         });
-        post.setOnClickListener(new View.OnClickListener() {
+
+
+        stop_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uploadImage();
-
+                videoView.pause();
             }
         });
 
-
-
-        Glide.with(getApplicationContext()).load(imageUri).into(imageAdded);
 
     }
 
-    private String getFileExtention(Uri uri){
-        ContentResolver contentResolver=getContentResolver();
-        MimeTypeMap mimeTypeMap=MimeTypeMap.getSingleton();
-        return  mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
+    private Uri getContentVideoFromStorageFile(String uriFileName) {
 
+        Bitmap videoBitmap=getThumbnail(uriFileName);
 
+        Uri videoFileUri=getImageUri(getApplicationContext(),videoBitmap);
+        return  videoFileUri;
     }
     private Uri getImageUri(Context context, Bitmap inImage) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
@@ -152,20 +144,35 @@ public class PostActivity extends AppCompatActivity {
         return Uri.parse(path);
     }
 
+    private void saveVideoToInternalStorage(String selectedVideoPath) {
 
-    private void uploadImage(){
+
+
+    }
+
+
+
+    private void uploadVideo(){
         final ProgressDialog progressDialog=new ProgressDialog(this);
         progressDialog.setMessage("Posting..");
         progressDialog.show();
 
+        // if(imageUri==null) {
+        //   imageUri = getImageUri(this, finalBitMap);
+        // }
 
-        if(imageUri!=null){
 
+        isStoragePermissionGranted();
+        if(contentURI!=null ){
             final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Posts");
             final String postId = reference.push().getKey();
-            final StorageReference fileReference=storageReference
+            final StorageReference fileReference=storageReference.child("video")
                     .child(postId);
-            uploadTask=fileReference.putFile(imageUri);
+
+
+
+
+            uploadTask=fileReference.putFile(contentURI);
             uploadTask.continueWithTask(new Continuation() {
                 @Override
                 public Object then(@NonNull Task task) throws Exception {
@@ -180,30 +187,29 @@ public class PostActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<Uri> task) {
                     if(task.isSuccessful()){
                         Uri downloadUri = task.getResult();
-                        myUrl = downloadUri.toString();
+                        String myUrl = downloadUri.toString();
 
 
                         HashMap<String, Object> hashMap = new HashMap<>();
                         hashMap.put("postId", postId);
-                        hashMap.put("video", "");
-                        hashMap.put("isvideo", "false");
-                        hashMap.put("postImage", myUrl);
-                        hashMap.put("description", description.getText().toString());
+                        hashMap.put("postImage", " ");
+                        hashMap.put("video", myUrl);
+                        hashMap.put("isvideo", "true");
+                        hashMap.put("description", " ");
                         hashMap.put("publisher", FirebaseAuth.getInstance().getCurrentUser().getUid());
-                        hashMap.put("publisherName", usersDataModel.getUserName());
-                        hashMap.put("publisherImage", usersDataModel.getThumb_Image());
 
                         reference.child(Objects.requireNonNull(postId)).setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 progressDialog.dismiss();
-
+                                startActivity(new Intent(VideoActivity.this, MainActivity.class));
                                 finish();
                             }
                         });
                     }else {
-                        Toast.makeText(PostActivity.this, "Failed", Toast.LENGTH_SHORT).show();
-
+                        Toast.makeText(VideoActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(VideoActivity.this, MainActivity.class));
+                        progressDialog.dismiss();
                         finish();
                     }
 
@@ -211,33 +217,32 @@ public class PostActivity extends AppCompatActivity {
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(PostActivity.this, "Failed", Toast.LENGTH_SHORT).show();
-
-                    finish();
+                    Toast.makeText(VideoActivity.this, ""+ e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
 
         }else{
-            Toast.makeText(PostActivity.this, "Failed", Toast.LENGTH_SHORT).show();
-
-            finish();
+            Toast.makeText(VideoActivity.this, "Failed", Toast.LENGTH_SHORT).show();
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode== CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && resultCode==RESULT_OK){
-            CropImage.ActivityResult result= CropImage.getActivityResult(data);
-            imageUri= result.getUri();
 
-            imageAdded.setImageURI(imageUri);
+    public  boolean isStoragePermissionGranted() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+
+                return true;
+            } else {
 
 
-        }else{
-            Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                return false;
+            }
+        }
+        else { //permission is automatically granted on sdk<23 upon installation
 
-            finish();
+            return true;
         }
     }
 
@@ -295,7 +300,4 @@ public class PostActivity extends AppCompatActivity {
     public void onBackPressed() {
         finish();
     }
-
-
-
 }

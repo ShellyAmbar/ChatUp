@@ -1,8 +1,6 @@
-package com.shelly.ambar.chatup;
+package com.shelly.ambar.chatup.Activities;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -28,12 +26,12 @@ import com.google.firebase.database.ValueEventListener;
 import com.shelly.ambar.chatup.Adapters.MyPhotoAdapter;
 import com.shelly.ambar.chatup.Models.PostModel;
 import com.shelly.ambar.chatup.Models.UsersDataModel;
+import com.shelly.ambar.chatup.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -169,7 +167,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent1=new Intent(ProfileActivity.this,FollowersActivity.class);
+                Intent intent1=new Intent(ProfileActivity.this, FollowersActivity.class);
                 intent1.putExtra("id",profileId);
                 intent1.putExtra("title","followers");
                 startActivity(intent1);

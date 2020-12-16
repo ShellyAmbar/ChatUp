@@ -14,10 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.shelly.ambar.chatup.MainActivity;
 import com.shelly.ambar.chatup.Models.CommentModel;
 import com.shelly.ambar.chatup.Models.UsersDataModel;
-import com.shelly.ambar.chatup.ProfileActivity;
+import com.shelly.ambar.chatup.Activities.ProfileActivity;
 import com.shelly.ambar.chatup.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;

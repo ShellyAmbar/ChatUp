@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.shelly.ambar.chatup.Adapters.ThumbNailAdapter;
-import com.shelly.ambar.chatup.FilterActivity;
+import com.shelly.ambar.chatup.Activities.FilterActivity;
 import com.shelly.ambar.chatup.Interfaces.FiltersListFragmentListener;
 import com.shelly.ambar.chatup.R;
 import com.shelly.ambar.chatup.Utils.BitmapUtils;

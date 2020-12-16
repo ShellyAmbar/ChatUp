@@ -2,7 +2,6 @@ package com.shelly.ambar.chatup.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,9 +13,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.shelly.ambar.chatup.Models.ChatMessageModel;
 import com.shelly.ambar.chatup.Models.UsersDataModel;
-import com.shelly.ambar.chatup.PitchSpeachActivity;
+import com.shelly.ambar.chatup.Activities.PitchSpeachActivity;
 import com.shelly.ambar.chatup.R;
-import com.github.library.bubbleview.BubbleTextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,7 +22,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.io.File;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;

@@ -20,12 +20,11 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
-import com.shelly.ambar.chatup.ChatActivity;
-import com.shelly.ambar.chatup.MainActivity;
+import com.shelly.ambar.chatup.Activities.ChatActivity;
 import com.shelly.ambar.chatup.Models.ChatMessageModel;
 import com.shelly.ambar.chatup.Models.ChatModel;
 import com.shelly.ambar.chatup.Models.UsersDataModel;
-import com.shelly.ambar.chatup.ProfileActivity;
+import com.shelly.ambar.chatup.Activities.ProfileActivity;
 import com.shelly.ambar.chatup.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -38,8 +37,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
-import java.util.Stack;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
